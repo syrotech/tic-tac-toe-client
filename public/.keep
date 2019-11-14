@@ -1,0 +1,29 @@
+NOTE PICTURES:To add images to your project, you must store them in the public directory.
+ To use the image in HTML or CSS, write the path to the image like this:
+
+<img src="public/cat.jpg">
+or
+#my-cool-div {
+  background-image: url('public/cat.jpg')
+}
+Note that there's no ./ or / in front of public/filename.jpg.
+
+RED FLAG: DO WE PUT IN .KEEP OR MAKE A NEW FILE?
+
+
+NOTE FONTS:To add custom fonts to your app, you can either use a CDN like
+Google Fonts, or you can download the fonts and save them in the public
+directory. If you use the former method, follow the directions on the website
+providing the fonts.
+
+For local fonts, put the files in public, and then import and use them in a
+.scss file like this:
+
+@font-face {
+  font-family: 'Nature Beauty';
+  src: url('public/Nature-Beauty.ttf') format('truetype');
+}
+
+.element-with-custom-font {
+  font-family: 'Nature Beauty';
+}
