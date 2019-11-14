@@ -1,17 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Janina's Game of Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <!-- HEADER -Title, (maybe)-Instructions, -Sign up, Sign In/Out -->
+  <header>
+    <h1 id="title">Tic Tac Toe</h1>
+    <!-- <p> Instruction: A Childhood Classic! (add as finishing touch)-->
+    <section class="pre-auth-forms">
+      <h3>Sign Up</h3>
+      <form id="sign-up">
+        <input type="email" placeholder="your@email.here">
+        <input type="password" placeholder="password">
+        <input type="password" placeholder="confirm password">
+        <button class="btn btn-primary">Submit</button>
+        <!-- you will have to add name="something[dataexact] to each input later on" -->
+      </form>
+      <h3>Sign In</h3>
+      <form id="sign-in">
+        <input type="email" placeholder="your@email.here">
+        <input type="password" placeholder="password">
+        <button class="btn btn-primary">Submit</button>
+        <!-- you will have to add name="something[dataexact] to each input later on" -->
+      </form>
+    </section>
+
+<!-- Post-Auth-Forms: with 'Change Password' and 'Sign Out' for now in muted that will
+take the place of the Sign-up and Sign-in once they are filled in -->
+    <!-- <section class="post-auth-forms">
+      <h3>Change Password</h3>
+      <input type="text" placeholder="current password">
+       <input type="text" placeholder="new password">
+       <input type="text" placeholder="repeat new password">
+       <button class="btn btn-primary">Submit</button>
+
+    //   you will have to add name="something[dataexact]" to each input later on -->
+
+      <!-- <h3>Sign Out</h3>
+      <form id="sign-out">
+        <p>Sorry to see you go! Hope you had a great time playing-see you again next time!</p>
+        <button class="btn btn-danger">Log out</button>
+      </form>
+    </section> -->
+  </header>
+
+  <main>
+    <section>
+      <div class="row-1">
+        <div class="square-0">0</div>
+        <div class="square-1">1</div>
+        <div class="square-2">2</div>
+      </div>
+
+      <div class="row-2">
+        <div class="square-3">3</div>
+        <div class="square-4">4</div>
+        <div class="square-5">5</div>
+      </div>
+
+      <div class="row-3">
+        <div class="square-6">6</div>
+        <div class="square-7">7</div>
+        <div class="square-8">8</div>
+      </div>
+    </section>
+  </main>
+
+  <section>
+      <button>O's Score</button>
+      <button>X's Score</button>
+      <button id="play-again">Play Another Round!</button>
+      <button id="reset">Reset Scoreboard</button>
+  </section>
+
+  <footer>
+    <p> &copy; Janina Emilia | 2019 | Tic Tac Toe </p>
+  </footer>
+
+</body>
+
 </html>
