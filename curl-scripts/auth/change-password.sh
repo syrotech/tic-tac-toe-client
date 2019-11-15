@@ -8,8 +8,7 @@ curl "https://tic-tac-toe-wdi.herokuapp.com/change-password" \
   --data '{
     "passwords": {
       "old": "'"${OLDPASSWORD}"'",
-      "new": "'"${NEWPASSWORD}"'",
-      "password_confirmation": "'"${NEWPASSWORD}"'"
+      "new": "'"${NEWPASSWORD}"'"
     }
   }'
 

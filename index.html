@@ -17,37 +17,23 @@
   <!-- HEADER -Title, (maybe)-Instructions, -Sign up, Sign In/Out -->
   <header>
     <h1 id="title">Tic Tac Toe</h1>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-      </div>
-    </div>
-
     <div id="message"></div>
     <!-- <p> Instruction: A Childhood Classic! (add as finishing touch)-->
     <section class="pre-auth-forms">
       <h3>Sign Up</h3>
       <form id="sign-up">
-        <input type="email" name="userdata[email]" placeholder="your@email.here">
-        <input type="password" name="userdata[password]" placeholder="password">
-        <input type="password" name="userdata[password_confirmation]" placeholder="confirm password">
+        <input type="email" name="credentials[email]" placeholder="your@email.here">
+        <input type="password" name="credentials[password]" placeholder="password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+<!-- does it have to be type="text" or can it be type="email"? -->
+<!-- does it have to be value like in the API notes, or can it be placeholder? -->
         <button class="btn btn-primary">Submit</button>
       </form>
       <h3>Sign In</h3>
       <form id="sign-in">
-        <input type="email" name="userdata[email]" placeholder="your@email.here">
-        <input type="password" name="userdata[password]" placeholder="password">
+        <input type="email" name="credentials[email]" placeholder="your@email.here">
+        <input type="password" name="credentials[email]" placeholder="password">
         <button class="btn btn-primary">Submit</button>
-        <!-- you will have to add name="something[dataexact] to each input later on" -->
       </form>
     </section>
 
@@ -56,12 +42,11 @@ take the place of the Sign-up and Sign-in once they are filled in -->
     <section class="post-auth-forms">
       <h3>Change Password</h3>
       <form id="change-password">
-        <input type="text" name="passwords[old]" placeholder="current password">
-        <input type="text" name="passwords[new]" placeholder="new password">
-        <input type="text" name="passwords[password_confirmation]" placeholder="repeat new password">
+        <input type="password" name="passwords[old]" placeholder="current password">
+        <input type="password" name="passwords[new]" placeholder="new password">
+<!-- can i keep placeholder? not in notes, but I was wondering if I could? -->
         <button class="btn btn-primary">Submit</button>
       </form>
-      <!-- you will have to add name="something[dataexact]" to each input later on -->
 
       <h3>Sign Out</h3>
       <form id="sign-out">
@@ -70,11 +55,6 @@ take the place of the Sign-up and Sign-in once they are filled in -->
       </form>
     </section>
   </header>
-
-
-
-
-
 
 
 

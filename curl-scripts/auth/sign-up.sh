@@ -5,7 +5,7 @@ curl "https://tic-tac-toe-wdi.herokuapp.com/sign-up" \
   --request POST \
   --header "Content-Type: application/json" \
   --data '{
-    "userdata": {
+    "credentials": {
       "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'",
       "password_confirmation": "'"${PASSWORD}"'"
