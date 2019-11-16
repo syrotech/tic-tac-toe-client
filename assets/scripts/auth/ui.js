@@ -25,7 +25,7 @@ const onFailure = message => {
 // sign-up success and failure messages
 
 const onSignUpSuccess = () => {
-  onSuccess('You have successfully signed in!')
+  onSuccess('You have successfully signed up!')
 }
 
 const onSignUpFailure = () => {

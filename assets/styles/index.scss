@@ -1,5 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
 
-h3 {
-  color: red;
+// Title
+h1 {
+  text-align: justify;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+// tic tac toe board
+.container {
+  background: orange;
+}
+
+.col-sm {
+  height: 100px;
+  text-align: center;
+  padding: 25px;
+  border: 2px black solid;
 }
