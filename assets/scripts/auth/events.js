@@ -19,6 +19,7 @@ const onSignIn = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
+  console.log('formData is', formData)
   api.signIn(formData)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
@@ -28,7 +29,8 @@ const onChangePassword = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  api.ChangePassword(formData)
+  console.log('formData is', formData)
+  api.changePassword(formData)
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)
 }

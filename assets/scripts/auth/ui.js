@@ -34,8 +34,12 @@ const onSignUpFailure = () => {
 
 // sign-in success and failure messages
 
-const onSignInSuccess = () => {
+const onSignInSuccess = responseData => {
+  console.log('onSignInSuccess', responseData)
+  store.user = responseData.user
   onSuccess('You are signed in and ready to play!')
+  $('.post-auth-forms').show()
+  $('.pre-auth-forms').hide()
 }
 
 const onSignInFailure = () => {
