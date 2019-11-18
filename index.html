@@ -14,11 +14,13 @@
 </head>
 
 <body>
-  <!-- HEADER -Title, (maybe)-Instructions, -Sign up, Sign In/Out -->
+<!-- HEADER -Title, (maybe)-Instructions -->
   <header>
     <h1 id="title">Tic Tac Toe</h1>
     <div id="message"></div>
     <!-- <p> Instruction: A Childhood Classic! (add as finishing touch)-->
+
+<!-- AUTHENTICATION FORMS -Sign up, Change PW, Sign In/Out-->
     <section class="pre-auth-forms">
       <h3>Sign Up</h3>
       <form id="sign-up">
@@ -37,7 +39,7 @@
       </form>
     </section>
 
-    <!-- Post-Auth-Forms: with 'Change Password' and 'Sign Out' will
+<!-- Post-Auth-Forms: with 'Change Password' and 'Sign Out' will
 take the place of the Sign-up and Sign-in once they are filled in -->
     <section class="post-auth-forms">
       <h3>Change Password</h3>
@@ -55,6 +57,8 @@ take the place of the Sign-up and Sign-in once they are filled in -->
       </form>
     </section>
   </header>
+
+<!-- TIC TAC TOE BOARD HTML -->
 <main>
   <div class="container">
     <div class="row">
@@ -97,12 +101,46 @@ take the place of the Sign-up and Sign-in once they are filled in -->
   </div>
 </main>
 
-  <section>
-    <button>O's Score</button>
-    <button>X's Score</button>
-    <button id="play-again">Play Another Round!</button>
-    <button id="reset">Reset Scoreboard</button>
-  </section>
+<!-- GAME API -->
+<h1>SCOREBOARD</h1>
+<section>
+  <button id="index" class='btn btn-primary'>Get All GAMES</button>
+
+<!-- Fix language in the forms ids and placeholders -->
+
+    <h2>Get A Game</h2>
+    <form id="get-game">
+      <label for="game-id"> Enter an ID </label>
+      <input name="game[id]" id="game-id" type="number" placeholder="ID">
+      <button class="btn btn-primary"> Get A Game</button>
+    </form>
+
+    <h2>Delete A Game</h2>
+    <form id="delete-game">
+      <label for="delete-game-id"> Enter an ID </label>
+      <input name="game[id]" id="delete-game-id" type="number" placeholder="ID">
+      <button class="btn btn-primary"> Delete A Game</button>
+    </form>
+
+    <h2>Update A Game</h2>
+    <form id="update-game">
+      <label for="update-game-id"> Enter the Following: </label>
+      <input name="game[id]" id="update-game-id" type="number" placeholder="ID">
+      <input name="game[title]" type="text" placeholder="Title">
+      <input name="game[author]" type="text" placeholder="Author">
+      <button class="btn btn-primary"> Update A Game</button>
+    </form>
+
+    <h2>Create A Game</h2>
+    <form id="create-game">
+      <label for="create-game-id"> Enter the Following: </label>
+      <input name="game[title]" type="text" placeholder="Title">
+      <input name="game[author]" type="text" placeholder="Author">
+      <button class="btn btn-primary"> Create A Game</button>
+    </form>
+
+</section>
+<section id="results"></section>
 
   <footer>
     <p> &copy; Janina Emilia | 2019 | Tic Tac Toe </p>
