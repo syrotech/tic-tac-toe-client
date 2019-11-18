@@ -1,14 +1,16 @@
 #!/bin/bash
 
-https://tic-tac-toe-wdi.herokuapp.com/
-
-curl --include --request PATCH  "https://sei-library-api.herokuapp.com/books/${ID}" \
+curl --include --request PATCH  "https://tic-tac-toe-wdi.herokuapp.com//games/:id \
+  --header "Authorization: Token token=${TOKEN}" \
   --header "Content-type: application/json" \
   --data '{
-    "book": {
-      "title": "'"${TITLE}"'",
-      "author": "'"${AUTHOR}"'"
+    "game": {
+      "cell": {
+        "index": 0,
+        "value": "x"
+      },
+      "over": false
     }
-  }'
+  }
 
 echo

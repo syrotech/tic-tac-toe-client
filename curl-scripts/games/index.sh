@@ -1,8 +1,6 @@
 #!/bin/bash
 
-https://tic-tac-toe-wdi.herokuapp.com/
-
-curl --include --request GET "https://sei-library-api.herokuapp.com/games" \
+curl --include --request GET "https://tic-tac-toe-wdi.herokuapp.com/games" \
   --include \
   --request GET \
   --header "Authorization: Token token=${TOKEN}" \
