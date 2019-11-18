@@ -1,6 +1,6 @@
 'use strict'
 
-// const store = require('../store.js')
+const store = require('../store.js')
 
 const onSuccess = message => {
   $('#message')
@@ -22,6 +22,7 @@ const onFailure = message => {
 // will have to be a post because later on the game will have to remember spots
 const onGameMoveSuccess = response => {
   onSuccess('You successfully clicked a spot!')
+  store.user = response.user
   console.log('response', response)
 }
 

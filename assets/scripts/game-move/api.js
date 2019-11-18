@@ -1,7 +1,7 @@
 'use strict'
 
 const config = require('../config')
-// const store = require('../store')
+const store = require('../store')
 
 // const gameMove = function (formData) {
 //   console.log('inside gameMove...formData is', formData)
@@ -17,8 +17,11 @@ const config = require('../config')
 
 const gameMove = function (formData) {
   return $.ajax({
-    url: config.apiUrl + '/game-move',
+    url: config.apiUrl + '/games',
     method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
     data: formData
   })
 }
