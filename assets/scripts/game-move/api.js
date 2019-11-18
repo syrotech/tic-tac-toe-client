@@ -16,9 +16,10 @@ const store = require('../store')
 // }
 
 const gameMove = function (formData) {
+  console.log('got to gameMove')
   return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'POST',
+    url: config.apiUrl + `/games/${ID}`,
+    method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },

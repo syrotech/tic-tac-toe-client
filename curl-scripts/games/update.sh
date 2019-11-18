@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl --include --request PATCH  "https://tic-tac-toe-wdi.herokuapp.com//games/:id \
+curl --include --request PATCH  "https://tic-tac-toe-wdi.herokuapp.com/games/${ID} \
   --header "Authorization: Token token=${TOKEN}" \
   --header "Content-type: application/json" \
   --data '{
@@ -11,6 +11,6 @@ curl --include --request PATCH  "https://tic-tac-toe-wdi.herokuapp.com//games/:i
       },
       "over": false
     }
-  }
+  }'
 
 echo
