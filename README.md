@@ -4,6 +4,7 @@ Instructions?
 Technologies Used?
   -HTML
   -BootStrap
+  -JQuery
 
 User Stories (add more)?
   -As a new user, I want instructions on how to play the game 'Tic Tac Toe' so that I can play a game round effectively.
