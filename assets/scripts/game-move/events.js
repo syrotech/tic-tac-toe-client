@@ -26,19 +26,37 @@
 //   6, 7, 8
 
 // these are the variabele for the board cells
-const cell0 = $('#0').text()
-const cell1 = $('#1').text()
-const cell2 = $('#2').text()
-const cell3 = $('#3').text()
-const cell4 = $('#4').text()
-const cell5 = $('#5').text()
-const cell6 = $('#6').text()
-const cell7 = $('#7').text()
-const cell8 = $('#8').text()
+// const cell0 = $('#0').text()
+// const cell1 = $('#1').text()
+// const cell2 = $('#2').text()
+// const cell3 = $('#3').text()
+// const cell4 = $('#4').text()
+// const cell5 = $('#5').text()
+// const cell6 = $('#6').text()
+// const cell7 = $('#7').text()
+// const cell8 = $('#8').text()
 
 const winningGame = function (currentPlayer) {
+  const cell0 = $('#0').text()
+  const cell1 = $('#1').text()
+  const cell2 = $('#2').text()
+  const cell3 = $('#3').text()
+  const cell4 = $('#4').text()
+  const cell5 = $('#5').text()
+  const cell6 = $('#6').text()
+  const cell7 = $('#7').text()
+  const cell8 = $('#8').text()
   console.log('currentPlayer is', currentPlayer)
-  if ((cell0 === currentPlayer && cell1 === currentPlayer && cell2 === currentPlayer)) {
+  console.log('cell0 is ', cell0)
+  console.log('cell1 is ', cell1)
+  console.log('cell2 is ', cell2)
+  console.log('cell3 is ', cell3)
+  console.log('cell4 is ', cell4)
+  console.log('cell5 is ', cell5)
+  console.log('cell6 is ', cell6)
+  console.log('cell7 is ', cell7)
+  console.log('cell8 is ', cell8)
+  if ((cell0 === currentPlayer) && (cell1 === currentPlayer) && (cell2 === currentPlayer)) {
     console.log('Winner!')
   } else if ((cell3 === currentPlayer) && (cell4 === currentPlayer) && (cell5 === currentPlayer)) {
     console.log('Winner!')
@@ -58,6 +76,9 @@ const winningGame = function (currentPlayer) {
     console.log('this is a tie or continue?')
   }
 }
+
+// const endGame = (winningSequence) => {
+//   console.log('Game Over', winningSequence
 
 // this is the let player click on space and add mark variable and functions
 let player1 = 'x'
