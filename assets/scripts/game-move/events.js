@@ -185,6 +185,7 @@ const onGameMove = event => {
 
 // do not allow users to add an X or O to an invalid space
 const onRestart = event => {
+  player1 = 'x'
   $('#0').html('')
   $('#1').html('')
   $('#2').html('')
