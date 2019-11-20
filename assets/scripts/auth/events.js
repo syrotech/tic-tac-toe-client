@@ -20,6 +20,7 @@ const onSignIn = event => {
   const form = event.target
   const formData = getFormFields(form)
   console.log('formData is', formData)
+
   api.signIn(formData)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
@@ -41,6 +42,10 @@ const onSignOut = event => {
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
+}
+
+const onRestart = event => {
+
 }
 
 const addHandlers = event => {

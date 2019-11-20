@@ -42,6 +42,7 @@ const onCreateGame = event => {
   event.preventDefault()
   const form = event.target
   const gameData = getFormFields(form)
+  console.log(gameData)
   api.create(gameData)
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)

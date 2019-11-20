@@ -4,6 +4,7 @@
 // const example = require('./example')
 const theGame = require('./auth/events.js')
 const authEvents = require('./game-move/events.js')
+const scoreboard = require('./scoreboard/events.js')
 // const scoreboard = require('./scoreboard/events.js')
 
 // use require without a reference to ensure a file is bundled
@@ -12,6 +13,7 @@ const authEvents = require('./game-move/events.js')
 $(() => {
   authEvents.addHandlers()
   theGame.addHandlers()
+  scoreboard.addHandlers()
   // scoreboard.addHandlers()
 })
 

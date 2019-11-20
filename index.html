@@ -15,8 +15,12 @@
 
 <body>
 <!-- HEADER -Title, (maybe)-Instructions -->
+
+  <nav class="navbar navbar-light bg-light">
+     <span class="navbar-brand mb-0 h1">Tic Tac Toe</span>
+  </nav>
   <header>
-    <h1 id="title">Tic Tac Toe</h1>
+    <!-- <h1 id="title">Tic Tac Toe</h1> -->
     <div id="message"></div>
     <!-- <p> Instruction: A Childhood Classic! (add as finishing touch)-->
 
@@ -52,14 +56,13 @@ take the place of the Sign-up and Sign-in once they are filled in -->
 
       <h3>Sign Out</h3>
       <form id="sign-out">
-        <p>Hope you had a great time playing-see you again next time!</p>
         <button class="btn btn-danger">Log out</button>
       </form>
     </section>
   </header>
 
 <!-- TIC TAC TOE BOARD HTML -->
-<main>
+<main class="post-auth-forms">
   <!-- <div class="container">
     <div class="row">
       <div class="col-sm" id="0"></div>
@@ -102,23 +105,37 @@ take the place of the Sign-up and Sign-in once they are filled in -->
 			</tr>
 		</tbody>
 	</table>
+  <div style="margin-top: 20px; margin-bottom: 20px;" align="center"><button class="btn btn-primary" id="restart-button"> Start again</button></div>
 </main>
 
+
+
 <!-- GAME API -->
-<h1>SCOREBOARD</h1>
-<section>
-  <button class='btn btn-primary' id="btn-x">X</button>
-  <button class='btn btn-primary' id="btn-o">O</button>
-  <button id="index" class='btn btn-primary'>Get All GAMES</button>
+<!-- <div class="post-auth-forms">
+<section> -->
+  <!-- Play the Game /UPDATE -->
 
-<!-- Fix language in the forms ids and placeholders -->
+  <!-- <h2>Play a Game</h2>
+  <form id="update-game">
+    <label for="update-game-id"></label>
+    <button class="btn btn-primary"> Play a Game</button>
+  </form> -->
 
-    <h2>Get A Game</h2>
+  <!-- Start New Game Form / CREATE -->
+  <!-- <form id="create-game">
+    <button for="create-game-id" class="btn btn-primary"> Start A Game</button>
+  </form> -->
+
+  <!-- Get Games Form / INDEX-->
+    <!-- <button id="index" class='btn btn-primary'>Get All Games</button>
+    <!-- <input for="index"> -->
+
+
+    <!-- <h2>Get Games</h2>
     <form id="get-game">
-      <label for="game-id"> Enter an ID </label>
-      <input name="game[id]" id="game-id" type="number" placeholder="ID">
+      <label for="game-id"> </label>
       <button class="btn btn-primary"> Get A Game</button>
-    </form>
+    </form> -->
 
     <!-- <h2>Delete A Game</h2>
     <form id="delete-game">
@@ -127,27 +144,11 @@ take the place of the Sign-up and Sign-in once they are filled in -->
       <button class="btn btn-primary"> Delete A Game</button>
     </form> -->
 
-    <h2>Update A Game</h2>
-    <form id="update-game">
-      <label for="update-game-id"> Enter the Following: </label>
-      <input name="game[id]" id="update-game-id" type="number" placeholder="ID">
-      <input name="game[title]" type="text" placeholder="Title">
-      <input name="game[author]" type="text" placeholder="Author">
-      <button class="btn btn-primary"> Update A Game</button>
-    </form>
+<!-- </section>
+<section id="results"></section> -->
+<!-- </div> -->
 
-    <h2>Create A Game</h2>
-    <form id="create-game">
-      <label for="create-game-id"> Enter the Following: </label>
-      <input name="game[title]" type="text" placeholder="Title">
-      <input name="game[author]" type="text" placeholder="Author">
-      <button class="btn btn-primary"> Create A Game</button>
-    </form>
-
-</section>
-<section id="results"></section>
-
-  <footer>
+  <footer style="text-align: center; margin-top: 50px;">
     <p> &copy; Janina Emilia | 2019 | Tic Tac Toe </p>
   </footer>
 

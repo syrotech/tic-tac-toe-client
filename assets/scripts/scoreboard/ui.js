@@ -11,9 +11,9 @@ const getGamesSuccess = response => {
   // double check with instructions on how to label correctly
   games.forEach(game => {
     gameHtml += `
-    <h4>${game.title}</h4>
-    <h5>${game.author}</h5>
-    <p>${game.id}</p>
+    <h4>${games.id}</h4>
+    <h5>${games.cells}</h5>
+    <p>${games.over}</p>
     `
     $('#results').html(gameHtml)
   })
@@ -22,9 +22,9 @@ const getGamesSuccess = response => {
 const getGameSuccess = data => {
   const game = data.game
   const gameHtml = `
-    <h4>${game.title}</h4>
-    <h5>${game.author}</h5>
-    <p>${game.id}</p>
+    <h4>${games.id}</h4>
+    <h5>${games.cells}</h5>
+    <p>${games.over}</p>
   `
   $('#results').html(gameHtml)
 }

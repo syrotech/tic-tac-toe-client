@@ -184,10 +184,34 @@ const onGameMove = event => {
 //  alert('not allowed')
 
 // do not allow users to add an X or O to an invalid space
-
+const onRestart = event => {
+  $('#0').html('')
+  $('#1').html('')
+  $('#2').html('')
+  $('#3').html('')
+  $('#4').html('')
+  $('#5').html('')
+  $('#6').html('')
+  $('#7').html('')
+  $('#8').html('')
+  $('#0').css('color', 'black')
+  $('#1').css('color', 'black')
+  $('#2').css('color', 'black')
+  $('#3').css('color', 'black')
+  $('#4').css('color', 'black')
+  $('#5').css('color', 'black')
+  $('#6').css('color', 'black')
+  $('#7').css('color', 'black')
+  $('#8').css('color', 'black')
+  $('#winner-announcement').html('New game! Player <strong>X</strong>, it\'s your turn!')
+  $('#winner-announcement').css('color', 'black')
+  gameOver = false
+  moveCount = 0
+}
 
 const addHandlers = event => {
   $('.cells').on('click', onGameMove)
+  $('#restart-button').on('click', onRestart)
 }
 
 // Do I add this into the addHandlers to make a callback in it to see if it is functioning?

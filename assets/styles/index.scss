@@ -66,9 +66,41 @@ td {
 	font-size: 2em;
 }
 
+table {
+  background-color: white;
+}
+
 #winner-announcement {
   text-align: center;
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
+
+.post-auth-forms {
+  display: none;
+}
+
+main {
+  display: none;
+}
+
+body {
+  background-color: rgb(199,211,179);
+}
+
+header {
+  margin-top: 10%;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding: 5%;
+  background: rgb(119, 167, 172);
+  border-radius: 20px;
+  border: solid 3px grey;
+}
+
+// #restart {
+//   aligncenter;
+// }
 // might have to add but let's try to do it with just divs and HTML
 // .div-x {
 // background-image: url('public/x.jpg')

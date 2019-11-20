@@ -11,21 +11,21 @@ const index = () => {
 
 const show = (formData) => {
   return $.ajax({
-    url: config.apiUrl + '/games/' + formData.game.id,
+    url: config.apiUrl + '/games/' + formData.games.id,
     method: 'GET'
   })
 }
 
 const destroy = (formData) => {
   return $.ajax({
-    url: config.apiUrl + '/games/' + formData.game.id,
+    url: config.apiUrl + '/games/' + formData.games.id,
     method: 'DELETE'
   })
 }
 
 const update = (formData) => {
   return $.ajax({
-    url: config.apiUrl + '/games/' + formData.game.id,
+    url: config.apiUrl + '/games/' + formData.games.id,
     method: 'PATCH',
     data: formData
   })
