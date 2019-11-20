@@ -1,11 +1,11 @@
 'use strict'
 
-// const api = require('./api.js')
-// const getFormFields = require('../../../lib/get-form-fields.js')
-// const ui = require('./ui.js')
+const api = require('./api.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
+const ui = require('./ui.js')
 //
 // // this is the game BOARD array
-// const board = ['', '', '', '', '', '', '', '', '']
+const board = ['', '', '', '', '', '', '', '', '']
 
 // these are the winning combinations
 // const winningCombos =
@@ -58,30 +58,36 @@ const winningGame = function (currentPlayer) {
   console.log('cell8 is ', cell8)
   if ((cell0 === currentPlayer) && (cell1 === currentPlayer) && (cell2 === currentPlayer)) {
     console.log('Winner!')
+    gameOver = true
   } else if ((cell3 === currentPlayer) && (cell4 === currentPlayer) && (cell5 === currentPlayer)) {
     console.log('Winner!')
+    gameOver = true
   } else if ((cell6 === currentPlayer) && (cell7 === currentPlayer) && (cell8 === currentPlayer)) {
     console.log('Winner!')
+    gameOver = true
   } else if ((cell0 === currentPlayer) && (cell4 === currentPlayer) && (cell8 === currentPlayer)) {
     console.log('Winner!')
+    gameOver = true
   } else if ((cell2 === currentPlayer) && (cell4 === currentPlayer) && (cell6 === currentPlayer)) {
     console.log('Winner!')
+    gameOver = true
   } else if ((cell0 === currentPlayer) && (cell3 === currentPlayer) && (cell6 === currentPlayer)) {
     console.log('Winner!')
+    gameOver = true
   } else if ((cell1 === currentPlayer) && (cell4 === currentPlayer) && (cell7 === currentPlayer)) {
     console.log('Winner!')
+    gameOver = true
   } else if ((cell2 === currentPlayer) && (cell5 === currentPlayer) && (cell8 === currentPlayer)) {
     console.log('Winner!')
+    gameOver = true
   } else {
     console.log('this is a tie or continue?')
   }
 }
 
-// const endGame = (winningSequence) => {
-//   console.log('Game Over', winningSequence
-
 // this is the let player click on space and add mark variable and functions
 let player1 = 'x'
+let gameOver = false
 // let player2 = 'o'
 //
 
@@ -118,12 +124,16 @@ const onGameMove = event => {
   // this is the function that prevents a spot from being clicked if it was already chosen
   const target = $(event.target)
   console.log(target.text() + ' ' + target.is('1'))
-  if (!(target.text() === 'x') && !(target.text() === 'o')) {
+  if (!(target.text() === 'x') && !(target.text() === 'o') && (gameOver === false)) {
     target.html(player1)
     winningGame(player1)
     changePlayer()
   }
+  // api.gameMove(formData)
+  //   .then(ui.onGameMoveSuccess)
+  //   .catch(ui.onGameMoveFailure)
 }
+
 // const formData = getFormFields(event.target)
 // console.log('formData is', formData)
 // if the user clicks on a valid space, then add their X or O
@@ -136,9 +146,6 @@ const onGameMove = event => {
 
 // do not allow users to add an X or O to an invalid space
 
-// api.gameMove(formData)
-//   .then(ui.onGameMoveSuccess)
-//   .catch(ui.onGameMoveFailure)
 
 const addHandlers = event => {
   $('.col-sm').on('click', onGameMove)

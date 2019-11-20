@@ -1,8 +1,13 @@
 Janina's Tic Tac Toe ReadME
 
-Instructions?
+Instructions
+Instructions are as followed:
+1. A user must initially sign-up and sign-in before they will be able to play the game.
+2. Once signed in, a user has the option of playing two players by the click of one 
 Technologies Used?
   -HTML
+  -CSS
+  -Javascript
   -BootStrap
   -JQuery
 
