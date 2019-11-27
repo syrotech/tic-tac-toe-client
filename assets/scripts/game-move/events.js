@@ -165,6 +165,7 @@ const onGameMove = event => {
       $('#winner-announcement').html('It\'s a tie!')
       $('#winner-announcement').css('color', 'blue')
     }
+
   } else if (gameOver === false) {
     $('#winner-announcement').html('Player <strong>' + player1 + '</strong>, choose another spot!')
   }
@@ -219,6 +220,49 @@ const addHandlers = event => {
 // {
 // console.log('Successfully clicked!')
 // }
+
+module.exports = {
+  addHandlers
+}
+
+// From SCOREBOARD
+
+'use strict'
+
+const api = require('./api')
+const ui = require('./ui')
+// const gameMove = require('./game-move/events')
+
+// const onGetGames = () => {
+//   api.index()
+//     .then(ui.getGamesSuccess)
+//     .catch(ui.getGamesFailure)
+// }
+
+// const onUpdateGame = event => {
+//   event.preventDefault()
+//   const form = event.target
+//   const gameData = getFormFields(form)
+//   api.update(gameData)
+//     .then(ui.updateGameSuccess)
+//     .catch(ui.updateGameFailure)
+// }
+
+const onCreateGame = event => {
+  event.preventDefault()
+  console.log('Got to on Create Game')
+  api.createGame()
+    .then(ui.onCreateGameSuccess)
+    .catch(ui.onCreateGameFailure)
+}
+
+const addHandlers = event => {
+  // do i want on the button or form?
+  $('#create-game').on('click', onCreateGame)
+  // double check with Eron
+  // $('#update-game').on('click', onCreateGame) on form
+  // $('#index').on('click', onGetGames)
+}
 
 module.exports = {
   addHandlers
