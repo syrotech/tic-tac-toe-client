@@ -31,65 +31,88 @@ const onGameMoveFailure = () => {
   onFailure('Please try again!')
 }
 
-module.exports = {
-  onGameMoveSuccess,
-  onGameMoveFailure
+//INDEX/GET ALL GAMES - Success and Failure
+
+const onGetGamesFailure = () => {
+  onFailure('ERROR- Failed to Get Games')
 }
 
-
-// FROM SCOREBOARD
-'use strict'
-
-const store = require('../store')
-
-const onSuccess = message => {
-  $('#create-game')
-    .removeClass('failure')
-    .addClass('success')
-    .text(message)
+const getGamesSuccess = data => {
+  const games = data.game
+  let gameHtml = ''
+// double check with instructions on how to label correctly
+  games.forEach(game => {
+    gameHtml += `
+    <h4>${games.id}</h4>
+    <h5>${games.cells}</h5>
+    <p>${games.over}</p>
+    `
+    $('#results').html(gameHtml)
+  })
 }
 
-const onFailure = message => {
-  $('#create-game')
-    .removeClass('success')
-    .addClass('failure')
-    .text(message)
-}
-
-const onCreateGameSuccess = (data) => {
+const onCreateGameSuccess = data => {
   onSuccess('You created a game!')
   store.game = data.game
 }
 
-const onCreateGameFailure = () => {
-  onFailure('Error-please try again!')
+module.exports = {
+  onGameMoveSuccess,
+  onGameMoveFailure,
+  onCreateGameSuccess
 }
-// const getGamesFailure = error => {
-//   console.error(error)
+
+
+// FROM SCOREBOARD
+// 'use strict'
+//
+// const store = require('../store')
+//
+// const onSuccess = message => {
+//   $('#create-game')
+//     .removeClass('failure')
+//     .addClass('success')
+//     .text(message)
 // }
-// const getGamesSuccess = response => {
-//   const games = response.games
-//   let gameHtml = ''
-// double check with instructions on how to label correctly
-//   games.forEach(game => {
-//     gameHtml += `
-//     <h4>${games.id}</h4>
-//     <h5>${games.cells}</h5>
-//     <p>${games.over}</p>
-//     `
-//     $('#results').html(gameHtml)
-//   })
+//
+// const onFailure = message => {
+//   $('#create-game')
+//     .removeClass('success')
+//     .addClass('failure')
+//     .text(message)
 // }
-// const updateGameSuccess = data => {
-//   $('#results').html('<p>You Updated a Game!</p>')
+//
+
+//
+// const onCreateGameFailure = () => {
+//   onFailure('Error-please try again!')
 // }
-// const updateGameFailure = error => {
-//   console.error(error)
-// }
+// // const getGamesFailure = error => {
+// //   console.error(error)
+// // }
+// // const getGamesSuccess = response => {
+// //   const games = response.games
+// //   let gameHtml = ''
+// // double check with instructions on how to label correctly
+// //   games.forEach(game => {
+// //     gameHtml += `
+// //     <h4>${games.id}</h4>
+// //     <h5>${games.cells}</h5>
+// //     <p>${games.over}</p>
+// //     `
+// //     $('#results').html(gameHtml)
+// //   })
+// // }
+// // const updateGameSuccess = data => {
+// //   $('#results').html('<p>You Updated a Game!</p>')
+// // }
+// // const updateGameFailure = error => {
+// //   console.error(error)
+// // }
 
 module.exports = {
-  onCreateGameSuccess,
-  onCreateGameFailure
+  // onCreateGameSuccess,
+  // onCreateGameFailure
   // getGamesFailure,
   // getGamesSuccess,
   // updateGameSuccess,

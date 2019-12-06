@@ -36,7 +36,7 @@ const board = ['', '', '', '', '', '', '', '', '']
 // const cell7 = $('#7').text()
 // const cell8 = $('#8').text()
 
-const winningGame = function (currentPlayer) {
+const winningGame = function(currentPlayer) {
   const cell0 = $('#0').text()
   const cell1 = $('#1').text()
   const cell2 = $('#2').text()
@@ -172,6 +172,13 @@ const onGameMove = event => {
   // api.gameMove(formData)
   //   .then(ui.onGameMoveSuccess)
   //   .catch(ui.onGameMoveFailure)
+
+  //put in your api function just like we did with createGame and onGetGames
+  api
+    .onUpdateGame()
+    .then(ui.onUpdateGameSuccess)
+    .catch(ui.onUpdateGameFailure)
+  console.log('Game updated button')
 }
 
 // const formData = getFormFields(event.target)
@@ -209,11 +216,24 @@ const onRestart = event => {
   $('#winner-announcement').css('color', 'black')
   gameOver = false
   moveCount = 0
+
+  api
+    .createGame()
+  console.log('new game works! D:')
+}
+
+const onGetGames = event => {
+  api
+    .getAllGames()
+    .then(ui.onGetGamesSuccess)
+    .catch(ui.onGetGamesFailure)
+  console.log('Works')
 }
 
 const addHandlers = event => {
   $('.cells').on('click', onGameMove)
   $('#restart-button').on('click', onRestart)
+  $('#index').on('click', onGetGames)
 }
 
 // Do I add this into the addHandlers to make a callback in it to see if it is functioning?
@@ -225,44 +245,44 @@ module.exports = {
   addHandlers
 }
 
-// From SCOREBOARD
-
-'use strict'
-
-const api = require('./api')
-const ui = require('./ui')
-// const gameMove = require('./game-move/events')
-
-// const onGetGames = () => {
-//   api.index()
-//     .then(ui.getGamesSuccess)
-//     .catch(ui.getGamesFailure)
-// }
-
-// const onUpdateGame = event => {
+// // From SCOREBOARD
+//
+// 'use strict'
+//
+// const api = require('./api')
+// const ui = require('./ui')
+// // const gameMove = require('./game-move/events')
+//
+// // const onGetGames = () => {
+// //   api.index()
+// //     .then(ui.getGamesSuccess)
+// //     .catch(ui.getGamesFailure)
+// // }
+//
+// // const onUpdateGame = event => {
+// //   event.preventDefault()
+// //   const form = event.target
+// //   const gameData = getFormFields(form)
+// //   api.update(gameData)
+// //     .then(ui.updateGameSuccess)
+// //     .catch(ui.updateGameFailure)
+// // }
+//
+// const onCreateGame = event => {
 //   event.preventDefault()
-//   const form = event.target
-//   const gameData = getFormFields(form)
-//   api.update(gameData)
-//     .then(ui.updateGameSuccess)
-//     .catch(ui.updateGameFailure)
+//   console.log('Got to on Create Game')
+//   api.createGame()
+//     .then(ui.onCreateGameSuccess)
+//     .catch(ui.onCreateGameFailure)
 // }
-
-const onCreateGame = event => {
-  event.preventDefault()
-  console.log('Got to on Create Game')
-  api.createGame()
-    .then(ui.onCreateGameSuccess)
-    .catch(ui.onCreateGameFailure)
-}
-
-const addHandlers = event => {
-  // do i want on the button or form?
-  $('#create-game').on('click', onCreateGame)
-  // double check with Eron
-  // $('#update-game').on('click', onCreateGame) on form
-  // $('#index').on('click', onGetGames)
-}
+//
+// const addHandlers = event => {
+//   // do i want on the button or form?
+//   $('#create-game').on('click', onCreateGame)
+//   // double check with Eron
+//   // $('#update-game').on('click', onCreateGame) on form
+//   // $('#index').on('click', onGetGames)
+// }
 
 module.exports = {
   addHandlers

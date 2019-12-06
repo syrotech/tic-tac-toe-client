@@ -14,6 +14,16 @@ const store = require('../store')
 //     data: formData
 //   })
 // }
+const createGame = () => {
+  console.log('new game is saved woo')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
 
 const gameMove = function (formData) {
   console.log('got to gameMove')
@@ -27,45 +37,52 @@ const gameMove = function (formData) {
   })
 }
 
-module.exports = {
-  gameMove
-}
-
-
-// FROM SCOREBOARD
-'use strict'
-
-const config = require('../config')
-const store = require('../store')
-
-const createGame = () => {
+const getAllGames = () => {
   return $.ajax({
     url: config.apiUrl + '/games',
-    method: 'POST',
+    method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`
     }
   })
 }
 
-// const updateGame = (index, value) => {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/' + store.game.id,
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: `Token token=${store.user.token}`
-//     },
-//     data: {
-//       'game': {
-//         'cell': {
-//           'index': index,
-//           'value': value
-//         },
-OVER
-//       }
-//     }
-//   })
-// }
+const onUpdateGame = (index, value) => {
+  console.log('update worked!')
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.user.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
+        }
+      }
+    }
+  })
+}
+
+module.exports = {
+  gameMove,
+  getAllGames,
+  createGame,
+  onUpdateGame
+}
+
+
+// FROM SCOREBOARD
+// 'use strict'
+//
+// const config = require('../config')
+// const store = require('../store')
+//
+
+//
+
 //
 // const index = () => {
 //   return $.ajax({
@@ -77,8 +94,8 @@ OVER
 //   })
 // }
 
-module.exports = {
-  createGame
+// module.exports = {
+  // createGame
   // updateGame,
   // index
-}
+// }
