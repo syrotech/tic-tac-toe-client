@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Janina's Game of Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <!-- HEADER -Title, (maybe)-Instructions -->
+
+  <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Tic Tac Toe</span>
+  </nav>
+  <header>
+    <!-- <h1 id="title">Tic Tac Toe</h1> -->
+    <div id="message"></div>
+    <!-- <p> Instruction: A Childhood Classic! (add as finishing touch)-->
+
+    <!-- AUTHENTICATION FORMS -Sign up, Change PW, Sign In/Out-->
+    <section class="pre-auth-forms">
+      <h3>Sign Up</h3>
+      <form id="sign-up">
+        <input type="email" name="credentials[email]" placeholder="your@email.here">
+        <input type="password" name="credentials[password]" placeholder="password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+        <!-- does it have to be type="text" or can it be type="email"? -->
+        <!-- does it have to be value like in the API notes, or can it be placeholder? -->
+        <button class="btn btn-primary">Submit</button>
+      </form>
+      <h3>Sign In</h3>
+      <form id="sign-in">
+        <input type="email" name="credentials[email]" placeholder="your@email.here">
+        <input type="password" name="credentials[password]" placeholder="password">
+        <button class="btn btn-primary">Submit</button>
+      </form>
+    </section>
+
+    <!-- Post-Auth-Forms: with 'Change Password' and 'Sign Out' will
+take the place of the Sign-up and Sign-in once they are filled in -->
+    <section class="post-auth-forms">
+      <h3>Change Password</h3>
+      <form id="change-password">
+        <input type="password" name="passwords[old]" placeholder="current password">
+        <input type="password" name="passwords[new]" placeholder="new password">
+        <!-- can i keep placeholder? not in notes, but I was wondering if I could? -->
+        <button class="btn btn-primary">Submit</button>
+      </form>
+
+      <h3>Sign Out</h3>
+      <form id="sign-out">
+        <button class="btn btn-danger">Log out</button>
+      </form>
+    </section>
+  </header>
+
+  <!-- TIC TAC TOE BOARD HTML -->
+  <main class="post-auth-forms">
+    <!-- <div class="container">
+    <div class="row">
+      <div class="col-sm" id="0"></div>
+      <div class="col-sm" id="1"></div>
+      <div class="col-sm" id="2"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm" id="3"></div>
+      <div class="col-sm" id="4"></div>
+      <div class="col-sm" id="5"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm" id="6"></div>
+      <div class="col-sm" id="7"></div>
+      <div class="col-sm" id="8"></div>
+    </div>
+  </div> -->
+    <h3 id="winner-announcement">Game starts! Player <strong>X</strong>, make a move!</h3>
+      <table class="game-table">
+        <tbody>
+          <tr>
+            <td class="cells" id="0"></td>
+            <td class="cells" id="1"></td>
+            <td class="cells" id="2"></td>
+          </tr>
+          <tr>
+            <td class="cells" id="3"></td>
+            <td class="cells" id="4"></td>
+            <td class="cells" id="5"></td>
+          </tr>
+          <tr>
+            <td class="cells" id="6"></td>
+            <td class="cells" id="7"></td>
+            <td class="cells" id="8"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top: 20px; margin-bottom: 20px;" align="center"><button class="btn btn-primary" id="restart-button"> New Game</button></div>
+  </main>
+
+
+
+  <!-- GAME API -->
+  <div class="post-auth-forms">
+    <div id="results"></div>
+    <section>
+
+      <!-- Get Games Form / INDEX -->
+      <h2>Get Games/Index</h2>
+      <button id="index" class='btn btn-primary'>Get Games/Index/Total Games</button>
+      <div class="getGames">get games is here!</div>
+    </section>
+
+  </div>
+
+  <footer style="text-align: center; margin-top: 50px;">
+    <p> &copy; Janina Emilia Cupp | 2019 | Tic Tac Toe </p>
+  </footer>
+
+</body>
+
+</html>
