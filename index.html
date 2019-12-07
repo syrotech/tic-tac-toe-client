@@ -14,25 +14,25 @@
 </head>
 
 <body>
-<!-- HEADER -Title, (maybe)-Instructions -->
+  <!-- HEADER -Title, (maybe)-Instructions -->
 
   <nav class="navbar navbar-light bg-light">
-     <span class="navbar-brand mb-0 h1">Tic Tac Toe</span>
+    <span class="navbar-brand mb-0 h1">Tic Tac Toe</span>
   </nav>
   <header>
     <!-- <h1 id="title">Tic Tac Toe</h1> -->
     <div id="message"></div>
     <!-- <p> Instruction: A Childhood Classic! (add as finishing touch)-->
 
-<!-- AUTHENTICATION FORMS -Sign up, Change PW, Sign In/Out-->
+    <!-- AUTHENTICATION FORMS -Sign up, Change PW, Sign In/Out-->
     <section class="pre-auth-forms">
       <h3>Sign Up</h3>
       <form id="sign-up">
         <input type="email" name="credentials[email]" placeholder="your@email.here">
         <input type="password" name="credentials[password]" placeholder="password">
         <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
-<!-- does it have to be type="text" or can it be type="email"? -->
-<!-- does it have to be value like in the API notes, or can it be placeholder? -->
+        <!-- does it have to be type="text" or can it be type="email"? -->
+        <!-- does it have to be value like in the API notes, or can it be placeholder? -->
         <button class="btn btn-primary">Submit</button>
       </form>
       <h3>Sign In</h3>
@@ -43,14 +43,14 @@
       </form>
     </section>
 
-<!-- Post-Auth-Forms: with 'Change Password' and 'Sign Out' will
+    <!-- Post-Auth-Forms: with 'Change Password' and 'Sign Out' will
 take the place of the Sign-up and Sign-in once they are filled in -->
     <section class="post-auth-forms">
       <h3>Change Password</h3>
       <form id="change-password">
         <input type="password" name="passwords[old]" placeholder="current password">
         <input type="password" name="passwords[new]" placeholder="new password">
-<!-- can i keep placeholder? not in notes, but I was wondering if I could? -->
+        <!-- can i keep placeholder? not in notes, but I was wondering if I could? -->
         <button class="btn btn-primary">Submit</button>
       </form>
 
@@ -61,9 +61,9 @@ take the place of the Sign-up and Sign-in once they are filled in -->
     </section>
   </header>
 
-<!-- TIC TAC TOE BOARD HTML -->
-<main class="post-auth-forms">
-  <!-- <div class="container">
+  <!-- TIC TAC TOE BOARD HTML -->
+  <main class="post-auth-forms">
+    <!-- <div class="container">
     <div class="row">
       <div class="col-sm" id="0"></div>
       <div class="col-sm" id="1"></div>
@@ -84,54 +84,43 @@ take the place of the Sign-up and Sign-in once they are filled in -->
       <div class="col-sm" id="8"></div>
     </div>
   </div> -->
-  <h3 id="winner-announcement">Game starts! Player <strong>X</strong>, make a move!</h3>
-
-  <table>
-		<tbody>
-			<tr>
-				<td class="cells" id="0"></td>
-				<td class="cells" id="1"></td>
-				<td class="cells" id="2"></td>
-			</tr>
-			<tr>
-				<td class="cells" id="3"></td>
-				<td class="cells" id="4"></td>
-				<td class="cells" id="5"></td>
-			</tr>
-			<tr>
-				<td class="cells" id="6"></td>
-				<td class="cells" id="7"></td>
-				<td class="cells" id="8"></td>
-			</tr>
-		</tbody>
-	</table>
-  <div style="margin-top: 20px; margin-bottom: 20px;" align="center"><button class="btn btn-primary" id="restart-button"> Start again</button></div>
-</main>
-
+    <h3 id="winner-announcement">Game starts! Player <strong>X</strong>, make a move!</h3>
+      <table class="game-table">
+        <tbody>
+          <tr>
+            <td class="cells" id="0"></td>
+            <td class="cells" id="1"></td>
+            <td class="cells" id="2"></td>
+          </tr>
+          <tr>
+            <td class="cells" id="3"></td>
+            <td class="cells" id="4"></td>
+            <td class="cells" id="5"></td>
+          </tr>
+          <tr>
+            <td class="cells" id="6"></td>
+            <td class="cells" id="7"></td>
+            <td class="cells" id="8"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top: 20px; margin-bottom: 20px;" align="center"><button class="btn btn-primary" id="restart-button"> New Game</button></div>
+  </main>
 
 
-<!-- GAME API -->
-<div class="post-auth-forms">
-  <div id="results"></div>
-  <section>
-<!-- Start New Game Form / CREATE -->
-    <h2>Create/Play the Game</h2>
-      <form id="create-game">
-        <button for="create-game-id" class="btn btn-primary"> Create/Start A Game</button>
-      </form>
 
-<!-- Play the Game /UPDATE -->
-    <h2>Update/Play a Game</h2>
-      <form id="update-game">
-        <button class="btn btn-primary"> Update/Play a Game</button>
-      </form>
+  <!-- GAME API -->
+  <div class="post-auth-forms">
+    <div id="results"></div>
+    <section>
 
- <!-- Get Games Form / INDEX -->
-   <h2>Get Games/Index</h2>
+      <!-- Get Games Form / INDEX -->
+      <h2>Get Games/Index</h2>
       <button id="index" class='btn btn-primary'>Get Games/Index/Total Games</button>
+      <div class="getGames">get games is here!</div>
+    </section>
 
-  </section>
-</div>
+  </div>
 
   <footer style="text-align: center; margin-top: 50px;">
     <p> &copy; Janina Emilia Cupp | 2019 | Tic Tac Toe </p>

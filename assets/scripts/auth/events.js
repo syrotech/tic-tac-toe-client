@@ -9,7 +9,7 @@ const onSignUp = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log('formData is', formData)
+  // console.log('formData is', formData)
   api.signUp(formData)
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)
@@ -19,7 +19,7 @@ const onSignIn = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log('formData is', formData)
+  // console.log('formData is', formData)
 
   api.signIn(formData)
     .then(ui.onSignInSuccess)
@@ -30,7 +30,7 @@ const onChangePassword = event => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log('formData is', formData)
+  // console.log('formData is', formData)
   api.changePassword(formData)
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)

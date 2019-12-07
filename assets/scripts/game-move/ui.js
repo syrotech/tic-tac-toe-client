@@ -23,7 +23,7 @@ const onFailure = message => {
 const onGameMoveSuccess = response => {
   onSuccess('You successfully clicked a spot!')
   store.user = response.user
-  console.log('response', response)
+  // console.log('response', response)
 }
 
 // onGameMove Failure callback
@@ -37,31 +37,35 @@ const onGetGamesFailure = () => {
   onFailure('ERROR- Failed to Get Games')
 }
 
-const getGamesSuccess = data => {
-  const games = data.game
-  let gameHtml = ''
-// double check with instructions on how to label correctly
+const onGetGamesSuccess = data => {
+  const games = data.games
+  // console.log('data is ' + data)
+  let gameHtml = 0
+
   games.forEach(game => {
-    gameHtml += `
-    <h4>${games.id}</h4>
-    <h5>${games.cells}</h5>
-    <p>${games.over}</p>
-    `
-    $('#results').html(gameHtml)
+    gameHtml++
   })
+  $('.getGames').html(gameHtml)
 }
 
 const onCreateGameSuccess = data => {
   onSuccess('You created a game!')
+  $('.game-table').show()
   store.game = data.game
+}
+
+const onCreateGameFailure = () => {
+  onFailure('Error-please try again!')
 }
 
 module.exports = {
   onGameMoveSuccess,
   onGameMoveFailure,
-  onCreateGameSuccess
+  onCreateGameSuccess,
+  onCreateGameFailure,
+  onGetGamesSuccess,
+  onGetGamesFailure
 }
-
 
 // FROM SCOREBOARD
 // 'use strict'
@@ -88,7 +92,7 @@ module.exports = {
 //   onFailure('Error-please try again!')
 // }
 // // const getGamesFailure = error => {
-// //   console.error(error)
+// //   // console.error(error)
 // // }
 // // const getGamesSuccess = response => {
 // //   const games = response.games
@@ -107,14 +111,14 @@ module.exports = {
 // //   $('#results').html('<p>You Updated a Game!</p>')
 // // }
 // // const updateGameFailure = error => {
-// //   console.error(error)
+// //   // console.error(error)
 // // }
 
-module.exports = {
-  // onCreateGameSuccess,
-  // onCreateGameFailure
-  // getGamesFailure,
-  // getGamesSuccess,
-  // updateGameSuccess,
-  // updateGameFailure,
-}
+// module.exports = {
+//   // onCreateGameSuccess,
+//   // onCreateGameFailure
+//   // getGamesFailure,
+//   // getGamesSuccess,
+//   // updateGameSuccess,
+//   // updateGameFailure,
+// }

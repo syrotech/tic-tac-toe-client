@@ -3,6 +3,7 @@
 const api = require('./api.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
+const store = require('../store.js')
 //
 // // this is the game BOARD array
 const board = ['', '', '', '', '', '', '', '', '']
@@ -35,6 +36,7 @@ const board = ['', '', '', '', '', '', '', '', '']
 // const cell6 = $('#6').text()
 // const cell7 = $('#7').text()
 // const cell8 = $('#8').text()
+// store the html id in a variable
 
 const winningGame = function(currentPlayer) {
   const cell0 = $('#0').text()
@@ -46,66 +48,66 @@ const winningGame = function(currentPlayer) {
   const cell6 = $('#6').text()
   const cell7 = $('#7').text()
   const cell8 = $('#8').text()
-  console.log('currentPlayer is', currentPlayer)
-  console.log('cell0 is ', cell0)
-  console.log('cell1 is ', cell1)
-  console.log('cell2 is ', cell2)
-  console.log('cell3 is ', cell3)
-  console.log('cell4 is ', cell4)
-  console.log('cell5 is ', cell5)
-  console.log('cell6 is ', cell6)
-  console.log('cell7 is ', cell7)
-  console.log('cell8 is ', cell8)
+  // // console.log('currentPlayer is', currentPlayer)
+  // // console.log('cell0 is ', cell0)
+  // // console.log('cell1 is ', cell1)
+  // // console.log('cell2 is ', cell2)
+  // // console.log('cell3 is ', cell3)
+  // // console.log('cell4 is ', cell4)
+  // // console.log('cell5 is ', cell5)
+  // // console.log('cell6 is ', cell6)
+  // // console.log('cell7 is ', cell7)
+  // // console.log('cell8 is ', cell8)
   if ((cell0 === currentPlayer) && (cell1 === currentPlayer) && (cell2 === currentPlayer)) {
-    console.log('Winner!')
+    // // console.log('Winner!')
     gameOver = true
     $('#0').css('color', 'red')
     $('#1').css('color', 'red')
     $('#2').css('color', 'red')
   } else if ((cell3 === currentPlayer) && (cell4 === currentPlayer) && (cell5 === currentPlayer)) {
-    console.log('Winner!')
+    // // console.log('Winner!')
     gameOver = true
     $('#3').css('color', 'red')
     $('#4').css('color', 'red')
     $('#5').css('color', 'red')
   } else if ((cell6 === currentPlayer) && (cell7 === currentPlayer) && (cell8 === currentPlayer)) {
-    console.log('Winner!')
+    // // console.log('Winner!')
     gameOver = true
     $('#6').css('color', 'red')
     $('#7').css('color', 'red')
     $('#8').css('color', 'red')
   } else if ((cell0 === currentPlayer) && (cell4 === currentPlayer) && (cell8 === currentPlayer)) {
-    console.log('Winner!')
+    // // console.log('Winner!')
     gameOver = true
     $('#0').css('color', 'red')
     $('#4').css('color', 'red')
     $('#8').css('color', 'red')
   } else if ((cell2 === currentPlayer) && (cell4 === currentPlayer) && (cell6 === currentPlayer)) {
-    console.log('Winner!')
+    // // console.log('Winner!')
     gameOver = true
     $('#2').css('color', 'red')
     $('#4').css('color', 'red')
     $('#6').css('color', 'red')
   } else if ((cell0 === currentPlayer) && (cell3 === currentPlayer) && (cell6 === currentPlayer)) {
-    console.log('Winner!')
+    // // console.log('Winner!')
     gameOver = true
     $('#0').css('color', 'red')
     $('#3').css('color', 'red')
     $('#6').css('color', 'red')
   } else if ((cell1 === currentPlayer) && (cell4 === currentPlayer) && (cell7 === currentPlayer)) {
-    console.log('Winner!')
+    // // console.log('Winner!')
     gameOver = true
     $('#1').css('color', 'red')
     $('#4').css('color', 'red')
     $('#7').css('color', 'red')
   } else if ((cell2 === currentPlayer) && (cell5 === currentPlayer) && (cell8 === currentPlayer)) {
-    console.log('Winner!')
+    // // console.log('Winner!')
     gameOver = true
     $('#2').css('color', 'red')
     $('#5').css('color', 'red')
     $('#8').css('color', 'red')
   } else {
-    console.log('this is a tie or continue?')
+    // // console.log('this is a tie or continue?')
   }
 }
 
@@ -119,11 +121,11 @@ let moveCount = 0
 // const currentPlayer = function() {
 //   if ($(onGameMove.text) === 'x') {
 //     player1 = 'x'
-//     console.log('current player is', player1)
+//     // // console.log('current player is', player1)
 //     }
 //     else {
 //       player1 = 'o'
-//       console.log('current player is', player1)
+//       // // console.log('current player is', player1)
 //     } return
 //   }
 
@@ -142,13 +144,13 @@ const changePlayer = () => {
 // this is the clicked spot function-- registers the click
 const onGameMove = event => {
   event.preventDefault()
-  console.log('onGameMove ran!')
+  // // console.log('onGameMove ran!')
   // $(event.target).html(player1)
-  // console.log(changePlayer())
+  // // // console.log(changePlayer())
   // $('.col-sm').innerHTML += 'A'
   // this is the function that prevents a spot from being clicked if it was already chosen
   const target = $(event.target)
-
+  const gameID = event.target.id
   if (!(target.text() === 'x') && !(target.text() === 'o') && (gameOver === false)) {
     target.html(player1)
     moveCount++
@@ -174,20 +176,22 @@ const onGameMove = event => {
   //   .catch(ui.onGameMoveFailure)
 
   //put in your api function just like we did with createGame and onGetGames
+// // console.log(store.user.id)
+  // // // console.log(store.game.id)
   api
-    .onUpdateGame()
+    .onUpdateGame(gameID, player1)
     .then(ui.onUpdateGameSuccess)
     .catch(ui.onUpdateGameFailure)
-  console.log('Game updated button')
+  // // console.log('Game updated button')
 }
 
 // const formData = getFormFields(event.target)
-// console.log('formData is', formData)
+// // // console.log('formData is', formData)
 // if the user clicks on a valid space, then add their X or O
 // if (!$('.col-sm').html('x') && !$('.col-sm').html('o')) {
 // $(event.target).html(player1)
 // changePlayer()
-// console.log(changePlayer())
+// // // console.log(changePlayer())
 // } else if (!$('.col-sm').html('')) {
 //  alert('not allowed')
 
@@ -219,7 +223,9 @@ const onRestart = event => {
 
   api
     .createGame()
-  console.log('new game works! D:')
+    .then(ui.onCreateGameSuccess)
+    .catch(ui.onCreateGameFailure)
+  // // console.log('new game works! D:')
 }
 
 const onGetGames = event => {
@@ -227,7 +233,7 @@ const onGetGames = event => {
     .getAllGames()
     .then(ui.onGetGamesSuccess)
     .catch(ui.onGetGamesFailure)
-  console.log('Works')
+  // // console.log('Works')
 }
 
 const addHandlers = event => {
@@ -238,12 +244,12 @@ const addHandlers = event => {
 
 // Do I add this into the addHandlers to make a callback in it to see if it is functioning?
 // {
-// console.log('Successfully clicked!')
+// // // console.log('Successfully clicked!')
 // }
 
-module.exports = {
-  addHandlers
-}
+// module.exports = {
+//   addHandlers
+// }
 
 // // From SCOREBOARD
 //
@@ -270,7 +276,7 @@ module.exports = {
 //
 // const onCreateGame = event => {
 //   event.preventDefault()
-//   console.log('Got to on Create Game')
+//   // // console.log('Got to on Create Game')
 //   api.createGame()
 //     .then(ui.onCreateGameSuccess)
 //     .catch(ui.onCreateGameFailure)

@@ -35,7 +35,7 @@ const onSignUpFailure = () => {
 // sign-in success and failure messages
 
 const onSignInSuccess = responseData => {
-  console.log('onSignInSuccess', responseData)
+  // console.log('onSignInSuccess', responseData)
   store.user = responseData.user
   onSuccess('You are signed in and ready to play!')
   $('.post-auth-forms').show()
@@ -63,6 +63,7 @@ const onSignOutSuccess = () => {
   store.user = {}
   $('.post-auth-forms').hide()
   $('.pre-auth-forms').show()
+  $('.game-table').hide()
 }
 
 const onSignOutFailure = () => {
